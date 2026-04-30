@@ -83,3 +83,11 @@ target_link_libraries(test_params vdpsu)
 # Large plaintext modulus test
 add_executable(test_large_p test/test_large_p.cc)
 target_link_libraries(test_large_p vdpsu)
+
+# PRISM verification simulation (standalone, GMP only)
+add_executable(prism_verify_sim test/prism_verify_sim.cc)
+target_link_libraries(prism_verify_sim ${GMP_LIB})
+
+# Our BF-based verification micro-benchmark (uses vdpsu's BloomFilter only)
+add_executable(our_verify_sim test/our_verify_sim.cc)
+target_link_libraries(our_verify_sim vdpsu)
